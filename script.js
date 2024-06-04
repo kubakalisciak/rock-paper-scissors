@@ -54,7 +54,7 @@ function playOnce(computer, human) {
     }
     else if (computer == "paper" && human == "rock") {
         alert("You lose! Paper beats rock!");
-        humanScore++;
+        computerScore++;
     }
     else if (computer == human) {
         alert("It's a tie!")

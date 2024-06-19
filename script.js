@@ -85,7 +85,7 @@ resetB.onclick = () => {
     computerScore = 0;
     humanScore = 0;
     resultDisplay.textContent = "";
-    computerScoreDisplay.textContent = "";
-    humanScoreDisplay.textContent = "";
+    computerScoreDisplay.textContent = "0";
+    humanScoreDisplay.textContent = "0";
     winnerDisplay.textContent = "";
 }

@@ -19,66 +19,73 @@ function getComputerChoice () {
             break;
 
         }
-    console.log(computerChoice);
+
     return computerChoice;
 }
 
-function getHumanChoice() {
-    let humanChoice = prompt('Rock, paper or scissors? ');
-    humanChoice = humanChoice.toLowerCase();
-
-    return humanChoice;
-}
-
 function playOnce(computer, human) {
-
     if (computer == 'scissors' && human == 'rock') {
-        alert('You win! Rock beats scissors!');
+        resultDisplay.textContent = "You win! Rock beats scissors!";
         humanScore++;
     }
     else if (computer == 'scissors' && human == 'paper') {
-        alert('You lose! Scissors beat paper!');
+        resultDisplay.textContent = "You lose! Scissors beat paper!";
         computerScore++;
     }
     else if (computer == "rock" && human == "paper") {
-        alert('You win! Paper beats rock!');
+        resultDisplay.textContent = "You win! Paper beats rock!";
         humanScore++;
     }
     else if (computer == 'rock' && human == 'scissors') {
-        alert('You lose! Rock beats scissors!');
+        resultDisplay.textContent = "You lose! Rock beats scissors!";
         computerScore++;
     }
     else if (computer == "paper" && human == "scissors") {
-        alert("You win! Scissors beat paper!");
+        resultDisplay.textContent = "You win! Scissors beat paper!";
         humanScore++;
     }
     else if (computer == "paper" && human == "rock") {
-        alert("You lose! Paper beats rock!");
+        resultDisplay.textContent = "You lose! Paper beats rock!";
         computerScore++;
     }
     else if (computer == human) {
-        alert("It's a tie!")
+        resultDisplay.textContent = "It's a tie!";
+    }
+
+    computerScoreDisplay.textContent = computerScore;
+    humanScoreDisplay.textContent = humanScore;
+
+    if (computerScore == 5) {
+        winnerDisplay.textContent = "You lost! Reset to play a new game";
+    }
+    else if (humanScore == 5) {
+        winnerDisplay.textContent = "You won! Reset to play a new game";
     }
 }
 
-function playGame () {
-    playOnce(getComputerChoice(), getHumanChoice());
-    playOnce(getComputerChoice(), getHumanChoice());
-    playOnce(getComputerChoice(), getHumanChoice());
-    playOnce(getComputerChoice(), getHumanChoice());
-    playOnce(getComputerChoice(), getHumanChoice());    
+let resultDisplay = document.querySelector('#result');
+let computerScoreDisplay = document.querySelector('#computer');
+let humanScoreDisplay = document.querySelector('#human');
+let winnerDisplay = document.querySelector('#winner');
 
-    alert("THE END! Your score will be announced!")
-
-    if (computerScore > humanScore) {
-        alert(`You lose! ${humanScore} : ${computerScore}`);
-    }
-    else if (humanScore > computerScore) {
-        alert(`You win! ${humanScore} : ${computerScore}`);
-    }
-    else {
-        alert(`It's a tie! ${humanScore} : ${computerScore}`);
-    }
+let rockB = document.querySelector('#rockB');
+rockB.onclick = () => {
+    playOnce(getComputerChoice(), 'rock');
 }
-
-playGame();
+let paperB = document.querySelector('#paperB');
+paperB.onclick = () => {
+    playOnce(getComputerChoice(), 'paper');
+}
+let scissorsB = document.querySelector('#scissorsB');
+scissorsB.onclick = () => {
+    playOnce(getComputerChoice(), 'scissors');
+}
+let resetB = document.querySelector('#resetB');
+resetB.onclick = () => {
+    computerScore = 0;
+    humanScore = 0;
+    resultDisplay.textContent = "";
+    computerScoreDisplay.textContent = "";
+    humanScoreDisplay.textContent = "";
+    winnerDisplay.textContent = "";
+}

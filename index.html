@@ -3,23 +3,19 @@
     <head>
         <title>Rock, Paper, Scissors</title>
         <meta charset="utf-8">
-        <script src="script.js"></script>
-        <style>
-            body {
-                background-color: #09091f;
-                color: #fdfff6;
-                font-family: sans-serif;
-                padding: 10px;
-            }
-            h1 {
-                color: #b49405;
-            }
-            strong {
-                color: #017c3f;
-            }
-        </style>
+        <script src="script.js" defer></script>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <h1>Rock, paper, scissors!</h1>
+        <button id="rockB">Rock</button>
+        <button id="paperB">Paper</button>
+        <button id="scissorsB">Scissors</button>
+        <button id="resetB">Reset</button>
+        <p id="result"></p>
+        <div>
+            <p><span id="human">0</span> : <span id="computer">0</span></p>
+            <p id="winner"></p>
+        </div>
     </body>
 </html>

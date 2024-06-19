@@ -37,3 +37,9 @@ button {
     font-weight: 500;
     background-color: aliceblue;
 }
+
+.icon {
+    display: block;
+    font-size: 30px;
+    padding: 5px;
+}
